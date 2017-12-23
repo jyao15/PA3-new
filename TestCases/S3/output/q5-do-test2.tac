@@ -26,29 +26,30 @@ main:
 _L10:
     _T9 = 0
     _T10 = (_T3 == _T9)
-    if (_T10 == 0) branch _L11
+    if (_T10 == 0) branch _L12
     _T11 = 8
     _T3 = _T11
     _T12 = _T3
-_L11:
+_L12:
     if (_T10 != 0) branch _L10
     _T13 = (_T5 + _T3)
     _T14 = (_T13 == _T4)
-    if (_T14 == 0) branch _L12
+    if (_T14 == 0) branch _L13
     _T15 = 5
     _T16 = (_T5 + _T15)
     _T4 = _T16
-_L12:
+_L13:
     if (_T14 != 0) branch _L10
     _T17 = 8
     _T18 = (_T3 == _T17)
-    if (_T18 == 0) branch _L13
+    if (_T18 == 0) branch _L14
     _T19 = 7
     _T3 = _T19
     _T20 = (_T3 + _T5)
     _T4 = _T20
-_L13:
+_L14:
     if (_T18 != 0) branch _L10
+_L11:
     parm _T3
     call _PrintInt
     parm _T4

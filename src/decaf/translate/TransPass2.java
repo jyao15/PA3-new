@@ -476,10 +476,14 @@ public class TransPass2 extends Tree.Visitor {
 	public void visitDoStmt(Tree.DoStmt dostmt) {
 		Label start = Label.createLabel();
 		tr.genMark(start);
+		Label exit = Label.createLabel();
+		loopExits.push(exit);
 		for (Tree.DoSubStmt substmt: dostmt.subStmts) {
 			substmt.accept(this);
 			tr.genBnez(substmt.expr.val, start);
 		}
+		loopExits.pop();
+		tr.genMark(exit);
 	}
 
 	@Override

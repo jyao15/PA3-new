@@ -1,20 +1,64 @@
-Exception in thread "main" java.util.EmptyStackException
-	at java.util.Stack.peek(Unknown Source)
-	at decaf.translate.TransPass2.visitBreak(TransPass2.java:350)
-	at decaf.tree.Tree$Break.accept(Tree.java:696)
-	at decaf.translate.TransPass2.visitBlock(TransPass2.java:250)
-	at decaf.tree.Tree$Block.accept(Tree.java:530)
-	at decaf.translate.TransPass2.visitDoSubStmt(TransPass2.java:471)
-	at decaf.tree.Tree$DoSubStmt.accept(Tree.java:796)
-	at decaf.translate.TransPass2.visitDoStmt(TransPass2.java:480)
-	at decaf.tree.Tree$DoStmt.accept(Tree.java:820)
-	at decaf.translate.TransPass2.visitBlock(TransPass2.java:250)
-	at decaf.tree.Tree$Block.accept(Tree.java:530)
-	at decaf.translate.TransPass2.visitMethodDef(TransPass2.java:40)
-	at decaf.tree.Tree$MethodDef.accept(Tree.java:450)
-	at decaf.translate.TransPass2.visitClassDef(TransPass2.java:29)
-	at decaf.tree.Tree$ClassDef.accept(Tree.java:415)
-	at decaf.translate.TransPass2.visitTopLevel(TransPass2.java:48)
-	at decaf.translate.Translater.translate(Translater.java:42)
-	at decaf.Driver.compile(Driver.java:104)
-	at decaf.Driver.main(Driver.java:117)
+VTABLE(_Main) {
+    <empty>
+    Main
+}
+
+FUNCTION(_Main_New) {
+memo ''
+_Main_New:
+    _T0 = 4
+    parm _T0
+    _T1 =  call _Alloc
+    _T2 = VTBL <_Main>
+    *(_T1 + 0) = _T2
+    return _T1
+}
+
+FUNCTION(main) {
+memo ''
+main:
+    _T4 = 10
+    _T3 = _T4
+    _T6 = 10
+    _T5 = _T6
+_L10:
+    _T7 = (_T3 + _T5)
+    _T8 = 30
+    _T9 = (_T7 > _T8)
+    if (_T9 == 0) branch _L12
+    _T10 = "a+b>30"
+    parm _T10
+    call _PrintString
+_L12:
+    if (_T9 != 0) branch _L10
+    _T11 = 20
+    _T12 = (_T3 < _T11)
+    if (_T12 == 0) branch _L13
+    _T13 = "a<20"
+    parm _T13
+    call _PrintString
+    _T14 = 10
+    _T15 = (_T3 + _T14)
+    _T3 = _T15
+_L13:
+    if (_T12 != 0) branch _L10
+    _T16 = 1
+    if (_T16 == 0) branch _L14
+    _T17 = "true"
+    parm _T17
+    call _PrintString
+    branch _L11
+_L14:
+    if (_T16 != 0) branch _L10
+    _T18 = 10
+    _T19 = (_T5 > _T18)
+    if (_T19 == 0) branch _L15
+    _T20 = (_T3 + _T5)
+    _T5 = _T20
+    parm _T5
+    call _PrintInt
+_L15:
+    if (_T19 != 0) branch _L10
+_L11:
+}
+
