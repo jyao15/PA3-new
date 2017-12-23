@@ -1,25 +1,20 @@
-VTABLE(_Main) {
-    <empty>
-    Main
-}
-
-FUNCTION(_Main_New) {
-memo ''
-_Main_New:
-    _T0 = 4
-    parm _T0
-    _T1 =  call _Alloc
-    _T2 = VTBL <_Main>
-    *(_T1 + 0) = _T2
-    return _T1
-}
-
-FUNCTION(main) {
-memo ''
-main:
-    _T4 = 10
-    _T3 = _T4
-    _T6 = 10
-    _T5 = _T6
-}
-
+Exception in thread "main" java.util.EmptyStackException
+	at java.util.Stack.peek(Unknown Source)
+	at decaf.translate.TransPass2.visitBreak(TransPass2.java:350)
+	at decaf.tree.Tree$Break.accept(Tree.java:696)
+	at decaf.translate.TransPass2.visitBlock(TransPass2.java:250)
+	at decaf.tree.Tree$Block.accept(Tree.java:530)
+	at decaf.translate.TransPass2.visitDoSubStmt(TransPass2.java:471)
+	at decaf.tree.Tree$DoSubStmt.accept(Tree.java:796)
+	at decaf.translate.TransPass2.visitDoStmt(TransPass2.java:480)
+	at decaf.tree.Tree$DoStmt.accept(Tree.java:820)
+	at decaf.translate.TransPass2.visitBlock(TransPass2.java:250)
+	at decaf.tree.Tree$Block.accept(Tree.java:530)
+	at decaf.translate.TransPass2.visitMethodDef(TransPass2.java:40)
+	at decaf.tree.Tree$MethodDef.accept(Tree.java:450)
+	at decaf.translate.TransPass2.visitClassDef(TransPass2.java:29)
+	at decaf.tree.Tree$ClassDef.accept(Tree.java:415)
+	at decaf.translate.TransPass2.visitTopLevel(TransPass2.java:48)
+	at decaf.translate.Translater.translate(Translater.java:42)
+	at decaf.Driver.compile(Driver.java:104)
+	at decaf.Driver.main(Driver.java:117)

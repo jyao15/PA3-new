@@ -462,6 +462,25 @@ public class TransPass2 extends Tree.Visitor {
 		tr.genAssign(aswitch.val, aswitch.defaultCaseExpr.val);
 		tr.genMark(exit);
 	}
+	
+	@Override
+	public void visitDoSubStmt(Tree.DoSubStmt dosubstmt) {
+		dosubstmt.expr.accept(this);
+		Label exit = Label.createLabel();
+		tr.genBeqz(dosubstmt.expr.val, exit);
+		dosubstmt.stmt.accept(this);
+		tr.genMark(exit);
+	}
+	
+	@Override
+	public void visitDoStmt(Tree.DoStmt dostmt) {
+		Label start = Label.createLabel();
+		tr.genMark(start);
+		for (Tree.DoSubStmt substmt: dostmt.subStmts) {
+			substmt.accept(this);
+			tr.genBnez(substmt.expr.val, start);
+		}
+	}
 
 	@Override
 	public void visitNewArray(Tree.NewArray newArray) {
