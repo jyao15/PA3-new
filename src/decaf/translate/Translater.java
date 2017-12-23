@@ -67,7 +67,12 @@ public class Translater {
 				if (tac.opc == Tac.Kind.MARK) {
 					pw.println(tac);
 				} else {
-					pw.println("    " + tac);
+					try {
+						pw.println("    " + tac);
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}
 				}
 				pw.flush();
 				tac = tac.next;
@@ -125,7 +130,7 @@ public class Translater {
 			}
 		}
 		if (sb.length() > 0) {
-			System.out.println("genMemo: " + sb);
+			//System.out.println("genMemo: " + sb);
 			return Tac.genMemo(sb.substring(0, sb.length() - 1));
 		} else {
 			return Tac.genMemo("");
@@ -410,6 +415,7 @@ public class Translater {
 		genMark(currentFuncty.label);
 		Temp size = genLoadImm4(c.getSize());
 		genParm(size);
+		// System.out.println("genNewForClass, size: " + c.getSize());
 		Temp newObj = genIntrinsicCall(Intrinsic.ALLOCATE);
 		int time = c.getSize() / OffsetCounter.WORD_SIZE - 1;
 		if (time != 0) {

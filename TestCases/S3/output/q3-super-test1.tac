@@ -1,19 +1,3 @@
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T1
-end vardef in methoddef: int Temp: _T1 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T3
-end vardef in methoddef: int Temp: _T3 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T5
-end vardef in methoddef: int Temp: _T5 Temp2: null
-genMemo: _T0:4 _T1:8 
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
-genMemo: _T2:4 _T3:8 
-visitBlock: decaf.tree.Tree$Block@2cdf8d8a
-genMemo: _T4:4 _T5:8 
-visitBlock: decaf.tree.Tree$Block@30946e09
-visitBlock: decaf.tree.Tree$Block@5cb0d902
 VTABLE(_Computer) {
     <empty>
     Computer
@@ -93,10 +77,51 @@ _L17:
 FUNCTION(_Mac.add) {
 memo '_T2:4 _T3:8'
 _Mac.add:
-Exception in thread "main" java.lang.NullPointerException
+java.lang.NullPointerException
 	at decaf.tac.Tac.toString(Tac.java:309)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.translate.Translater.printTo(Translater.java:71)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
+    parm _T3
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T24 = *(_T23 + 8)
+    call _T24
+    _T25 = "ack!"
+    parm _T25
+    call _PrintString
+}
+
+FUNCTION(_Mac.Crash) {
+memo '_T4:4 _T5:8'
+_Mac.Crash:
+    parm _T4
+    parm _T5
+    _T26 = *(_T4 + 0)
+    _T27 = *(_T26 + 12)
+    call _T27
+    _T28 = "ack!"
+    parm _T28
+    call _PrintString
+}
+
+FUNCTION(main) {
+memo ''
+main:
+    _T30 =  call _Mac_New
+    _T29 = _T30
+    _T31 = 2
+    parm _T29
+    parm _T31
+    _T32 = *(_T29 + 0)
+    _T33 = *(_T32 + 8)
+    call _T33
+}
+

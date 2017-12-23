@@ -1,12 +1,3 @@
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T1
-end vardef in methoddef: int Temp: _T1 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T2
-end vardef in methoddef: int Temp: _T2 Temp2: null
-genMemo: _T0:4 _T1:8 _T2:12 
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
-visitBlock: decaf.tree.Tree$Block@2cdf8d8a
 VTABLE(_Mac) {
     <empty>
     Mac

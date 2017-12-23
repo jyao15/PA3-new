@@ -26,6 +26,7 @@ public class TransPass2 extends Tree.Visitor {
 	@Override
 	public void visitClassDef(Tree.ClassDef classDef) {
 		for (Tree f : classDef.fields) {
+			//System.out.println("trans2 visitClassDef visit fields" + f);
 			f.accept(this);
 		}
 	}
@@ -55,12 +56,12 @@ public class TransPass2 extends Tree.Visitor {
 			Temp t = Temp.createTempI4();
 			t.sym = varDef.symbol;
 			varDef.symbol.setTemp(t);
-			//System.out.println("vardef1 " + varDef.symbol.getTemp());
+			//System.out.println("vardef1 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp());
 			if (varDef.symbol.getType() == BaseType.COMPLEX) {
 				Temp t2 = Temp.createTempI4();
 				t2.sym = varDef.symbol;
 				varDef.symbol.setTemp2(t2);
-				//System.out.println("vardef2 " + varDef.symbol.getTemp2());
+				//System.out.println("vardef2 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp2());
 			}
 		}
 	}
@@ -173,10 +174,12 @@ public class TransPass2 extends Tree.Visitor {
 			Tree.Ident varRef = (Tree.Ident) assign.left;
 			tr.genStore(assign.expr.val, varRef.owner.val, varRef.symbol
 					.getOffset());
+			//System.out.println("member var 1 offset: " + varRef.symbol.getOffset());
 			if (assign.expr.type.equal(BaseType.COMPLEX)) {
 				//System.out.println("Hello assign complex!");
-				tr.genStore(assign.expr.secondVal, varRef.owner.secondVal, varRef.symbol
+				tr.genStore(assign.expr.secondVal, varRef.owner.val, varRef.symbol
 						.getOffset() + OffsetCounter.WORD_SIZE);
+				//System.out.println("member var 2 offset: " + (varRef.symbol.getOffset() + OffsetCounter.WORD_SIZE));
 				//System.out.println("Assign complex finished!");
 			}
 			break;
@@ -252,7 +255,7 @@ public class TransPass2 extends Tree.Visitor {
 
 	@Override
 	public void visitBlock(Tree.Block block) {
-		System.out.println("visitBlock: " + block);
+		//System.out.println("visitBlock: " + block);
 		for (Tree s : block.block) {
 			s.accept(this);
 		}
@@ -340,7 +343,7 @@ public class TransPass2 extends Tree.Visitor {
 		case MEMBER_VAR:
 			ident.val = tr.genLoad(ident.owner.val, ident.symbol.getOffset());
 			if (ident.symbol.getType() == BaseType.COMPLEX) {
-				ident.val = tr.genLoad(ident.owner.secondVal, ident.symbol.getOffset() + OffsetCounter.WORD_SIZE);
+				ident.secondVal = tr.genLoad(ident.owner.val, ident.symbol.getOffset() + OffsetCounter.WORD_SIZE);
 			}
 			break;
 		default:

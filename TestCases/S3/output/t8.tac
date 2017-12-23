@@ -1,29 +1,3 @@
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T1
-end vardef in methoddef: int Temp: _T1 Temp2: null
-start vardef in methoddef: class : Animal Temp: null Temp2: null
-vardef in methoddef: Temp: _T2
-end vardef in methoddef: class : Animal Temp: _T2 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T6
-end vardef in methoddef: int Temp: _T6 Temp2: null
-start vardef in methoddef: class : Animal Temp: null Temp2: null
-vardef in methoddef: Temp: _T7
-end vardef in methoddef: class : Animal Temp: _T7 Temp2: null
-start vardef in methoddef: bool Temp: null Temp2: null
-vardef in methoddef: Temp: _T8
-end vardef in methoddef: bool Temp: _T8 Temp2: null
-genMemo: _T0:4 _T1:8 _T2:12 
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
-genMemo: _T3:4 
-visitBlock: decaf.tree.Tree$Block@2cdf8d8a
-genMemo: _T4:4 
-visitBlock: decaf.tree.Tree$Block@30946e09
-genMemo: _T5:4 _T6:8 _T7:12 _T8:16 
-visitBlock: decaf.tree.Tree$Block@5cb0d902
-genMemo: _T9:4 
-visitBlock: decaf.tree.Tree$Block@46fbb2c1
-visitBlock: decaf.tree.Tree$Block@1698c449
 VTABLE(_Animal) {
     <empty>
     Animal

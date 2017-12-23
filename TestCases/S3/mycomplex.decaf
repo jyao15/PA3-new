@@ -1,8 +1,7 @@
 class Mac  {
     complex ex;
-    void Crash(complex comp) {
-        ex = comp;
-        ex = ex + 1;
+    void Crash() {
+        ex = 3+4j;
     }
 }
 
@@ -10,6 +9,6 @@ class Main {
     static void main() {
         class Mac powerbook;
         powerbook = new Mac();
-        powerbook.Crash(3+4j);
+        powerbook.Crash();
     }
 }

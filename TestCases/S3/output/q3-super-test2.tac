@@ -1,85 +1,3 @@
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T1
-end vardef in methoddef: int Temp: _T1 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T2
-end vardef in methoddef: int Temp: _T2 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T6
-end vardef in methoddef: int Temp: _T6 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T7
-end vardef in methoddef: int Temp: _T7 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T11
-end vardef in methoddef: int Temp: _T11 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T12
-end vardef in methoddef: int Temp: _T12 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T16
-end vardef in methoddef: int Temp: _T16 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T17
-end vardef in methoddef: int Temp: _T17 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T21
-end vardef in methoddef: int Temp: _T21 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T22
-end vardef in methoddef: int Temp: _T22 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T26
-end vardef in methoddef: int Temp: _T26 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T27
-end vardef in methoddef: int Temp: _T27 Temp2: null
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T31
-end vardef in methoddef: int Temp: _T31 Temp2: null
-genMemo: _T0:4 _T1:8 _T2:12 
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
-genMemo: _T3:4 
-visitBlock: decaf.tree.Tree$Block@2cdf8d8a
-genMemo: _T4:4 
-visitBlock: decaf.tree.Tree$Block@30946e09
-genMemo: _T5:4 _T6:8 _T7:12 
-visitBlock: decaf.tree.Tree$Block@5cb0d902
-genMemo: _T8:4 
-visitBlock: decaf.tree.Tree$Block@46fbb2c1
-genMemo: _T9:4 
-visitBlock: decaf.tree.Tree$Block@1698c449
-genMemo: _T10:4 _T11:8 _T12:12 
-visitBlock: decaf.tree.Tree$Block@5ef04b5
-genMemo: _T13:4 
-visitBlock: decaf.tree.Tree$Block@5f4da5c3
-genMemo: _T14:4 
-visitBlock: decaf.tree.Tree$Block@443b7951
-genMemo: _T15:4 _T16:8 _T17:12 
-visitBlock: decaf.tree.Tree$Block@14514713
-genMemo: _T18:4 
-visitBlock: decaf.tree.Tree$Block@69663380
-genMemo: _T19:4 
-visitBlock: decaf.tree.Tree$Block@5b37e0d2
-genMemo: _T20:4 _T21:8 _T22:12 
-visitBlock: decaf.tree.Tree$Block@4459eb14
-genMemo: _T23:4 
-visitBlock: decaf.tree.Tree$Block@5a2e4553
-genMemo: _T24:4 
-visitBlock: decaf.tree.Tree$Block@28c97a5
-genMemo: _T25:4 _T26:8 _T27:12 
-visitBlock: decaf.tree.Tree$Block@6659c656
-genMemo: _T28:4 
-visitBlock: decaf.tree.Tree$Block@6d5380c2
-genMemo: _T29:4 
-visitBlock: decaf.tree.Tree$Block@45ff54e6
-genMemo: _T30:4 _T31:8 
-visitBlock: decaf.tree.Tree$Block@2328c243
-genMemo: _T32:4 
-visitBlock: decaf.tree.Tree$Block@bebdb06
-genMemo: _T33:4 
-visitBlock: decaf.tree.Tree$Block@7a4f0f29
-visitBlock: decaf.tree.Tree$Block@45283ce2
 VTABLE(_A) {
     <empty>
     A
@@ -380,10 +298,502 @@ _B.fun:
     _T99 = "B"
     parm _T99
     call _PrintString
-Exception in thread "main" java.lang.NullPointerException
+java.lang.NullPointerException
 	at decaf.tac.Tac.toString(Tac.java:309)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.translate.Translater.printTo(Translater.java:71)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T101 = *(_T100 + 12)
+    call _T101
+    parm _T9
+    _T102 = *(_T9 + 0)
+    _T103 = *(_T102 + 12)
+    call _T103
+    _T104 = "\n"
+    parm _T104
+    call _PrintString
+}
+
+FUNCTION(_C.setC) {
+memo '_T10:4 _T11:8 _T12:12'
+_C.setC:
+    _T105 = *(_T10 + 12)
+    *(_T10 + 12) = _T11
+    _T106 = *(_T10 + 16)
+    *(_T10 + 16) = _T12
+}
+
+FUNCTION(_C.print) {
+memo '_T13:4'
+_C.print:
+    _T107 = " c="
+    parm _T107
+    call _PrintString
+    _T108 = *(_T13 + 12)
+    parm _T108
+    call _PrintInt
+    _T109 = " c1="
+    parm _T109
+    call _PrintString
+    _T110 = *(_T13 + 16)
+    parm _T110
+    call _PrintInt
+    _T111 = " "
+    parm _T111
+    call _PrintString
+}
+
+FUNCTION(_C.fun) {
+memo '_T14:4'
+_C.fun:
+    _T112 = "C"
+    parm _T112
+    call _PrintString
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:309)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T114 = *(_T113 + 12)
+    call _T114
+    parm _T14
+    _T115 = *(_T14 + 0)
+    _T116 = *(_T115 + 12)
+    call _T116
+    _T117 = "\n"
+    parm _T117
+    call _PrintString
+}
+
+FUNCTION(_D.setD) {
+memo '_T15:4 _T16:8 _T17:12'
+_D.setD:
+    _T118 = *(_T15 + 20)
+    *(_T15 + 20) = _T16
+    _T119 = *(_T15 + 24)
+    *(_T15 + 24) = _T17
+}
+
+FUNCTION(_D.print) {
+memo '_T18:4'
+_D.print:
+    _T120 = " d="
+    parm _T120
+    call _PrintString
+    _T121 = *(_T18 + 20)
+    parm _T121
+    call _PrintInt
+    _T122 = " d1="
+    parm _T122
+    call _PrintString
+    _T123 = *(_T18 + 24)
+    parm _T123
+    call _PrintInt
+    _T124 = " "
+    parm _T124
+    call _PrintString
+}
+
+FUNCTION(_D.fun) {
+memo '_T19:4'
+_D.fun:
+    _T125 = "D"
+    parm _T125
+    call _PrintString
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:309)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T127 = *(_T126 + 12)
+    call _T127
+    parm _T19
+    _T128 = *(_T19 + 0)
+    _T129 = *(_T128 + 12)
+    call _T129
+    _T130 = "\n"
+    parm _T130
+    call _PrintString
+}
+
+FUNCTION(_E.setE) {
+memo '_T20:4 _T21:8 _T22:12'
+_E.setE:
+    _T131 = *(_T20 + 20)
+    *(_T20 + 20) = _T21
+    _T132 = *(_T20 + 24)
+    *(_T20 + 24) = _T22
+}
+
+FUNCTION(_E.print) {
+memo '_T23:4'
+_E.print:
+    _T133 = " e="
+    parm _T133
+    call _PrintString
+    _T134 = *(_T23 + 20)
+    parm _T134
+    call _PrintInt
+    _T135 = " e1="
+    parm _T135
+    call _PrintString
+    _T136 = *(_T23 + 24)
+    parm _T136
+    call _PrintInt
+    _T137 = " "
+    parm _T137
+    call _PrintString
+}
+
+FUNCTION(_E.fun) {
+memo '_T24:4'
+_E.fun:
+    _T138 = "E"
+    parm _T138
+    call _PrintString
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:309)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T140 = *(_T139 + 12)
+    call _T140
+    parm _T24
+    _T141 = *(_T24 + 0)
+    _T142 = *(_T141 + 12)
+    call _T142
+    _T143 = "\n"
+    parm _T143
+    call _PrintString
+}
+
+FUNCTION(_F.setF) {
+memo '_T25:4 _T26:8 _T27:12'
+_F.setF:
+    _T144 = *(_T25 + 28)
+    *(_T25 + 28) = _T26
+    _T145 = *(_T25 + 32)
+    *(_T25 + 32) = _T27
+}
+
+FUNCTION(_F.print) {
+memo '_T28:4'
+_F.print:
+    _T146 = " f="
+    parm _T146
+    call _PrintString
+    _T147 = *(_T28 + 28)
+    parm _T147
+    call _PrintInt
+    _T148 = " f1="
+    parm _T148
+    call _PrintString
+    _T149 = *(_T28 + 32)
+    parm _T149
+    call _PrintInt
+    _T150 = " "
+    parm _T150
+    call _PrintString
+}
+
+FUNCTION(_F.fun) {
+memo '_T29:4'
+_F.fun:
+    _T151 = "F"
+    parm _T151
+    call _PrintString
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:309)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T153 = *(_T152 + 12)
+    call _T153
+    parm _T29
+    _T154 = *(_T29 + 0)
+    _T155 = *(_T154 + 12)
+    call _T155
+    _T156 = "\n"
+    parm _T156
+    call _PrintString
+}
+
+FUNCTION(_G.setG) {
+memo '_T30:4 _T31:8'
+_G.setG:
+    _T157 = *(_T30 + 20)
+    *(_T30 + 20) = _T31
+}
+
+FUNCTION(_G.print) {
+memo '_T32:4'
+_G.print:
+    _T158 = " g="
+    parm _T158
+    call _PrintString
+    _T159 = *(_T32 + 20)
+    parm _T159
+    call _PrintInt
+}
+
+FUNCTION(_G.fun) {
+memo '_T33:4'
+_G.fun:
+    _T160 = "G"
+    parm _T160
+    call _PrintString
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:309)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:288)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+    _T162 = *(_T161 + 12)
+    call _T162
+    _T163 = "\n"
+    parm _T163
+    call _PrintString
+}
+
+FUNCTION(main) {
+memo ''
+main:
+    _T171 =  call _A_New
+    _T164 = _T171
+    _T172 =  call _B_New
+    _T165 = _T172
+    _T173 =  call _C_New
+    _T166 = _T173
+    _T174 =  call _D_New
+    _T167 = _T174
+    _T175 =  call _E_New
+    _T168 = _T175
+    _T176 =  call _F_New
+    _T169 = _T176
+    _T177 =  call _G_New
+    _T170 = _T177
+    _T178 = 10
+    _T179 = 11
+    parm _T164
+    parm _T178
+    parm _T179
+    _T180 = *(_T164 + 0)
+    _T181 = *(_T180 + 8)
+    call _T181
+    _T182 = 20
+    _T183 = 21
+    parm _T165
+    parm _T182
+    parm _T183
+    _T184 = *(_T165 + 0)
+    _T185 = *(_T184 + 8)
+    call _T185
+    _T186 = 22
+    _T187 = 23
+    parm _T165
+    parm _T186
+    parm _T187
+    _T188 = *(_T165 + 0)
+    _T189 = *(_T188 + 20)
+    call _T189
+    _T190 = 30
+    _T191 = 31
+    parm _T166
+    parm _T190
+    parm _T191
+    _T192 = *(_T166 + 0)
+    _T193 = *(_T192 + 8)
+    call _T193
+    _T194 = 32
+    _T195 = 33
+    parm _T166
+    parm _T194
+    parm _T195
+    _T196 = *(_T166 + 0)
+    _T197 = *(_T196 + 20)
+    call _T197
+    _T198 = 40
+    _T199 = 41
+    parm _T167
+    parm _T198
+    parm _T199
+    _T200 = *(_T167 + 0)
+    _T201 = *(_T200 + 8)
+    call _T201
+    _T202 = 42
+    _T203 = 43
+    parm _T167
+    parm _T202
+    parm _T203
+    _T204 = *(_T167 + 0)
+    _T205 = *(_T204 + 20)
+    call _T205
+    _T206 = 44
+    _T207 = 45
+    parm _T167
+    parm _T206
+    parm _T207
+    _T208 = *(_T167 + 0)
+    _T209 = *(_T208 + 24)
+    call _T209
+    _T210 = 50
+    _T211 = 51
+    parm _T168
+    parm _T210
+    parm _T211
+    _T212 = *(_T168 + 0)
+    _T213 = *(_T212 + 8)
+    call _T213
+    _T214 = 52
+    _T215 = 53
+    parm _T168
+    parm _T214
+    parm _T215
+    _T216 = *(_T168 + 0)
+    _T217 = *(_T216 + 20)
+    call _T217
+    _T218 = 54
+    _T219 = 55
+    parm _T168
+    parm _T218
+    parm _T219
+    _T220 = *(_T168 + 0)
+    _T221 = *(_T220 + 24)
+    call _T221
+    _T222 = 60
+    _T223 = 61
+    parm _T169
+    parm _T222
+    parm _T223
+    _T224 = *(_T169 + 0)
+    _T225 = *(_T224 + 8)
+    call _T225
+    _T226 = 62
+    _T227 = 63
+    parm _T169
+    parm _T226
+    parm _T227
+    _T228 = *(_T169 + 0)
+    _T229 = *(_T228 + 20)
+    call _T229
+    _T230 = 64
+    _T231 = 65
+    parm _T169
+    parm _T230
+    parm _T231
+    _T232 = *(_T169 + 0)
+    _T233 = *(_T232 + 24)
+    call _T233
+    _T234 = 66
+    _T235 = 67
+    parm _T169
+    parm _T234
+    parm _T235
+    _T236 = *(_T169 + 0)
+    _T237 = *(_T236 + 28)
+    call _T237
+    _T238 = 70
+    _T239 = 71
+    parm _T170
+    parm _T238
+    parm _T239
+    _T240 = *(_T170 + 0)
+    _T241 = *(_T240 + 8)
+    call _T241
+    _T242 = 72
+    _T243 = 73
+    parm _T170
+    parm _T242
+    parm _T243
+    _T244 = *(_T170 + 0)
+    _T245 = *(_T244 + 20)
+    call _T245
+    _T246 = 74
+    parm _T170
+    parm _T246
+    _T247 = *(_T170 + 0)
+    _T248 = *(_T247 + 24)
+    call _T248
+    parm _T164
+    _T249 = *(_T164 + 0)
+    _T250 = *(_T249 + 16)
+    call _T250
+    parm _T165
+    _T251 = *(_T165 + 0)
+    _T252 = *(_T251 + 16)
+    call _T252
+    parm _T166
+    _T253 = *(_T166 + 0)
+    _T254 = *(_T253 + 16)
+    call _T254
+    parm _T167
+    _T255 = *(_T167 + 0)
+    _T256 = *(_T255 + 16)
+    call _T256
+    parm _T168
+    _T257 = *(_T168 + 0)
+    _T258 = *(_T257 + 16)
+    call _T258
+    parm _T169
+    _T259 = *(_T169 + 0)
+    _T260 = *(_T259 + 16)
+    call _T260
+    parm _T170
+    _T261 = *(_T170 + 0)
+    _T262 = *(_T261 + 16)
+    call _T262
+}
+

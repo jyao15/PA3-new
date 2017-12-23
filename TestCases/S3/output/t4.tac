@@ -1,13 +1,3 @@
-start vardef in methoddef: int Temp: null Temp2: null
-vardef in methoddef: Temp: _T1
-end vardef in methoddef: int Temp: _T1 Temp2: null
-genMemo: _T0:4 _T1:8 
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
-genMemo: _T2:4 
-visitBlock: decaf.tree.Tree$Block@2cdf8d8a
-visitBlock: decaf.tree.Tree$Block@30946e09
-visitBlock: decaf.tree.Tree$Block@5cb0d902
-visitBlock: decaf.tree.Tree$Block@46fbb2c1
 VTABLE(_Main) {
     <empty>
     Main

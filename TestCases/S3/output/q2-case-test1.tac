@@ -1,4 +1,3 @@
-visitBlock: decaf.tree.Tree$Block@4b9af9a9
 VTABLE(_Main) {
     <empty>
     Main
@@ -24,10 +23,14 @@ main:
     _T5 = _T7
     _T8 = 3
     _T6 = _T8
-Exception in thread "main" java.lang.NullPointerException
+java.lang.NullPointerException
 	at decaf.tac.Tac.toString(Tac.java:259)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.translate.Translater.printTo(Translater.java:71)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
+    parm _T5
+    call _PrintInt
+}
+

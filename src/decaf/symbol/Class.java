@@ -175,6 +175,7 @@ public class Class extends Symbol {
 				size += OffsetCounter.WORD_SIZE;
 				if (sym.type.equal(BaseType.COMPLEX)) {
 					size += OffsetCounter.WORD_SIZE;
+					//System.out.println("resolvefield complex");
 				}
 			} else if (!((Function) sym).isStatik()) {
 				if (ps == null) {

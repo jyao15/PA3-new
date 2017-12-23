@@ -48,6 +48,7 @@ public class TransPass1 extends Tree.Visitor {
 		objectSize = 0;
 		vars.clear();
 		for (Tree f : classDef.fields) {
+			//System.out.println("trans1 visitClassDef visit fields" + f);
 			f.accept(this);
 		}
 		Collections.sort(vars, Symbol.ORDER_COMPARATOR);
@@ -70,6 +71,7 @@ public class TransPass1 extends Tree.Visitor {
 
 	@Override
 	public void visitMethodDef(Tree.MethodDef funcDef) {
+		//System.out.println("start visitmethodDef");
 		Function func = funcDef.symbol;
 		if (!func.isStatik()) {
 			func.setOffset(2 * OffsetCounter.POINTER_SIZE + func.getOrder()
@@ -92,17 +94,17 @@ public class TransPass1 extends Tree.Visitor {
 			order = 0;
 		}
 		for (Tree.VarDef vd : funcDef.formals) {
-			System.out.println("start vardef in methoddef: " + vd.symbol.getType() + ' ' + 
-					"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
+			//System.out.println("start vardef in methoddef: " + vd.symbol.getType() + ' ' + 
+			//		"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
 			vd.symbol.setOrder(order++);
 			Temp t = Temp.createTempI4();
-			System.out.println("vardef in methoddef: Temp: " + t);
+			//System.out.println("vardef in methoddef: Temp: " + t);
 			t.sym = vd.symbol;
 			t.isParam = true;
 			vd.symbol.setTemp(t);
 			if (vd.symbol.getType().equal(BaseType.COMPLEX)) {
 				Temp t2 = Temp.createTempI4();
-				System.out.println("vardef in methoddef: Temp2: " + t2);
+				//System.out.println("vardef in methoddef: Temp2: " + t2);
 				t2.sym = vd.symbol;
 				t2.isParam = true;
 				vd.symbol.setTemp2(t2);
@@ -111,9 +113,10 @@ public class TransPass1 extends Tree.Visitor {
 			else {
 				vd.symbol.setOffset(oc.next(vd.symbol.getTemp().size));
 			}
-			System.out.println("end vardef in methoddef: " + vd.symbol.getType() + ' ' + 
-					"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
+			//System.out.println("end vardef in methoddef: " + vd.symbol.getType() + ' ' + 
+			//		"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
 		}
+		//System.out.println("end visitmethodDef");
 	}
 
 	@Override
@@ -121,6 +124,7 @@ public class TransPass1 extends Tree.Visitor {
 		vars.add(varDef.symbol);
 		if (varDef.symbol.getType().equal(BaseType.COMPLEX)) {
 			objectSize += OffsetCounter.WORD_SIZE * 2;
+			//System.out.println("objectsize * 2");
 		}
 		else {
 			objectSize += OffsetCounter.WORD_SIZE;
