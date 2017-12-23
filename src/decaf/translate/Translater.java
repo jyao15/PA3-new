@@ -73,7 +73,7 @@ public class Translater {
 						e.printStackTrace();
 					}
 				}
-				pw.flush();
+				//pw.flush();
 				tac = tac.next;
 			}
 			pw.println("}");
@@ -377,6 +377,16 @@ public class Translater {
 		Temp cond = genLes(size, genLoadImm4(0));
 		genBeqz(cond, exit);
 		Temp msg = genLoadStrConst(RuntimeError.NEGATIVE_ARR_SIZE);
+		genParm(msg);
+		genIntrinsicCall(Intrinsic.PRINT_STRING);
+		genIntrinsicCall(Intrinsic.HALT);
+		genMark(exit);
+	}
+	
+	public void genCheckDivisionByZero(Temp divisor) {
+		Label exit = Label.createLabel();
+		genBnez(divisor, exit);
+		Temp msg = genLoadStrConst(RuntimeError.DIVISION_BY_ZERO);
 		genParm(msg);
 		genIntrinsicCall(Intrinsic.PRINT_STRING);
 		genIntrinsicCall(Intrinsic.HALT);

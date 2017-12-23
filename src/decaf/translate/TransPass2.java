@@ -1,14 +1,19 @@
 package decaf.translate;
 
+import java.util.Iterator;
 import java.util.Stack;
 
 import decaf.tree.Tree;
 import decaf.backend.OffsetCounter;
 import decaf.machdesc.Intrinsic;
+import decaf.scope.ClassScope;
+import decaf.symbol.Class;
+import decaf.symbol.Symbol;
 import decaf.symbol.Variable;
 import decaf.tac.Label;
 import decaf.tac.Temp;
 import decaf.type.BaseType;
+import decaf.type.ClassType;
 
 public class TransPass2 extends Tree.Visitor {
 
@@ -107,9 +112,11 @@ public class TransPass2 extends Tree.Visitor {
 			expr.val = tr.genMul(expr.left.val, expr.right.val);
 			break;
 		case Tree.DIV:
+			tr.genCheckDivisionByZero(expr.right.val);
 			expr.val = tr.genDiv(expr.left.val, expr.right.val);
 			break;
 		case Tree.MOD:
+			tr.genCheckDivisionByZero(expr.right.val);
 			expr.val = tr.genMod(expr.left.val, expr.right.val);
 			break;
 		case Tree.AND:
@@ -254,6 +261,56 @@ public class TransPass2 extends Tree.Visitor {
 	@Override
 	public void visitThisExpr(Tree.ThisExpr thisExpr) {
 		thisExpr.val = currentThis;
+	}
+
+	@Override
+	public void visitSCopy(Tree.SCopy scopyExpr) {
+		scopyExpr.expr.accept(this);
+		scopyExpr.val = scopyExpr.expr.val;
+	}
+
+	public int checkDcopyary(Temp val, Temp base, Class c) {
+		Class pa = c.getParent();
+		int size = 0;
+		if (pa != null) {
+			size = checkDcopyary(val,base, pa);
+		} else
+			size = OffsetCounter.POINTER_SIZE;
+
+		ClassScope associatedScope = c.getAssociatedScope();
+		Iterator<Symbol> iter = associatedScope.iterator();
+		while (iter.hasNext()) {
+			Symbol sym = iter.next();
+			if (sym.isVariable()) {
+				if (sym.getType().isClassType())
+				{
+					Class cla = ((ClassType)(sym.getType())).getSymbol();
+					Temp temp = tr.genDirectCall(cla.getNewFuncLabel(),
+							BaseType.INT);
+					checkDcopyary(temp,tr.genLoad(base, size) , cla);
+					tr.genStore(temp,val,size);
+					size += OffsetCounter.WORD_SIZE;
+				}else
+				{
+					tr.genStore(tr.genLoad(base, size),val,size);
+					size += OffsetCounter.WORD_SIZE;
+					if (sym.getType().equal(BaseType.COMPLEX))
+					{
+						tr.genStore(tr.genLoad(base, size),val,size);
+						size += OffsetCounter.WORD_SIZE;
+					}
+				}
+			} 
+		}
+		return size;
+	}
+
+	@Override
+	public void visitDCopy(Tree.DCopy dcopyExpr) {
+		dcopyExpr.expr.accept(this);
+		Class c = ((ClassType)((Tree.Ident)dcopyExpr.expr).symbol.getType()).getSymbol();
+		dcopyExpr.val = tr.genDirectCall(c.getNewFuncLabel(), BaseType.INT);
+		checkDcopyary(dcopyExpr.val,dcopyExpr.expr.val, c);
 	}
 
 	@Override

@@ -1,6 +1,10 @@
-*** Error at (77,1): syntax error
-*** Error: undefined function _people.setaniage
-*** Error: undefined function _people.getage
-*** Error: undefined function _people.setage
-*** Error: undefined function _animal.setage
-*** Error: undefined function _animal.getage
+a: 
+10
+89+8j
+100
+11
+b: 
+10
+89+8j
+99
+11

@@ -1,3 +1,87 @@
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
+java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:287)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuilder.append(Unknown Source)
+	at decaf.translate.Translater.printTo(Translater.java:70)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
 VTABLE(_A) {
     <empty>
     A
@@ -298,20 +382,6 @@ _B.fun:
     _T99 = "B"
     parm _T99
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T101 = *(_T100 + 12)
     call _T101
     parm _T9
@@ -358,20 +428,6 @@ _C.fun:
     _T112 = "C"
     parm _T112
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T114 = *(_T113 + 12)
     call _T114
     parm _T14
@@ -418,20 +474,6 @@ _D.fun:
     _T125 = "D"
     parm _T125
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T127 = *(_T126 + 12)
     call _T127
     parm _T19
@@ -478,20 +520,6 @@ _E.fun:
     _T138 = "E"
     parm _T138
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T140 = *(_T139 + 12)
     call _T140
     parm _T24
@@ -538,20 +566,6 @@ _F.fun:
     _T151 = "F"
     parm _T151
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T153 = *(_T152 + 12)
     call _T153
     parm _T29
@@ -587,20 +601,6 @@ _G.fun:
     _T160 = "G"
     parm _T160
     call _PrintString
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
     _T162 = *(_T161 + 12)
     call _T162
     _T163 = "\n"
