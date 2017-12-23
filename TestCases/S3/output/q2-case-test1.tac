@@ -24,10 +24,10 @@ main:
     _T8 = 3
     _T6 = _T8
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     parm _T5

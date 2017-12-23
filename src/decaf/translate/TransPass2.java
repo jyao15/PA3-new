@@ -26,7 +26,6 @@ public class TransPass2 extends Tree.Visitor {
 	@Override
 	public void visitClassDef(Tree.ClassDef classDef) {
 		for (Tree f : classDef.fields) {
-			//System.out.println("trans2 visitClassDef visit fields" + f);
 			f.accept(this);
 		}
 	}
@@ -56,12 +55,10 @@ public class TransPass2 extends Tree.Visitor {
 			Temp t = Temp.createTempI4();
 			t.sym = varDef.symbol;
 			varDef.symbol.setTemp(t);
-			//System.out.println("vardef1 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp());
 			if (varDef.symbol.getType() == BaseType.COMPLEX) {
 				Temp t2 = Temp.createTempI4();
 				t2.sym = varDef.symbol;
 				varDef.symbol.setTemp2(t2);
-				//System.out.println("vardef2 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp2());
 			}
 		}
 	}
@@ -174,13 +171,9 @@ public class TransPass2 extends Tree.Visitor {
 			Tree.Ident varRef = (Tree.Ident) assign.left;
 			tr.genStore(assign.expr.val, varRef.owner.val, varRef.symbol
 					.getOffset());
-			//System.out.println("member var 1 offset: " + varRef.symbol.getOffset());
 			if (assign.expr.type.equal(BaseType.COMPLEX)) {
-				//System.out.println("Hello assign complex!");
 				tr.genStore(assign.expr.secondVal, varRef.owner.val, varRef.symbol
 						.getOffset() + OffsetCounter.WORD_SIZE);
-				//System.out.println("member var 2 offset: " + (varRef.symbol.getOffset() + OffsetCounter.WORD_SIZE));
-				//System.out.println("Assign complex finished!");
 			}
 			break;
 		case PARAM_VAR:
@@ -188,8 +181,6 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp(),
 					assign.expr.val);
 			if (assign.expr.type.equal(BaseType.COMPLEX)) {
-				//System.out.println(((Tree.Ident) assign.left).symbol.getTemp2());
-				//System.out.println(assign.expr.secondVal);
 				tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp2(),
 						assign.expr.secondVal);
 			}
@@ -255,7 +246,6 @@ public class TransPass2 extends Tree.Visitor {
 
 	@Override
 	public void visitBlock(Tree.Block block) {
-		//System.out.println("visitBlock: " + block);
 		for (Tree s : block.block) {
 			s.accept(this);
 		}

@@ -24,10 +24,10 @@ main:
     _T11 = 3
     _T5 = _T11
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     parm _T4
@@ -38,10 +38,10 @@ java.lang.NullPointerException
     _T13 = 3
     _T6 = _T13
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     parm _T4
@@ -50,10 +50,10 @@ java.lang.NullPointerException
     parm _T14
     call _PrintString
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     parm _T4
@@ -62,10 +62,10 @@ java.lang.NullPointerException
     parm _T15
     call _PrintString
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     parm _T4
@@ -75,10 +75,10 @@ java.lang.NullPointerException
     call _PrintString
     _T18 = 0
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     _T7 = _T17
@@ -98,10 +98,10 @@ java.lang.NullPointerException
     call _PrintString
     _T23 = 0
 java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:259)
+	at decaf.tac.Tac.toString(Tac.java:258)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:71)
+	at decaf.translate.Translater.printTo(Translater.java:70)
 	at decaf.Driver.compile(Driver.java:107)
 	at decaf.Driver.main(Driver.java:117)
     _T7 = _T22

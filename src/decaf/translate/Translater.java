@@ -63,7 +63,6 @@ public class Translater {
 			pw.println(ft.paramMemo);
 			Tac tac = ft.head;
 			while (tac != null) {
-//				System.out.println("tac: " + tac);
 				if (tac.opc == Tac.Kind.MARK) {
 					pw.println(tac);
 				} else {
@@ -130,7 +129,6 @@ public class Translater {
 			}
 		}
 		if (sb.length() > 0) {
-			//System.out.println("genMemo: " + sb);
 			return Tac.genMemo(sb.substring(0, sb.length() - 1));
 		} else {
 			return Tac.genMemo("");
