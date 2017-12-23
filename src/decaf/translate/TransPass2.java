@@ -433,6 +433,35 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genMark(exit);
 		}
 	}
+	
+	@Override
+	public void visitCaseDef(Tree.CaseDef caseDef) {
+		if (caseDef.caseValue != null) {
+			caseDef.caseValue.accept(this);
+		}
+		//System.out.println("caseDef.expr.val: " + caseDef.expr.val);
+		caseDef.expr.accept(this);
+		//System.out.println("caseDef.val: " + caseDef.val + "  caseDef.expr.val: " + caseDef.expr.val);
+		caseDef.val = caseDef.expr.val;
+	}
+	
+	@Override
+	public void visitSwitch(Tree.Switch aswitch) {
+		aswitch.expr.accept(this);
+		aswitch.val = Temp.createTempI4();
+		Label exit = Label.createLabel();
+		for (Tree.CaseDef caseDef: aswitch.normalCaseExpr) {
+			caseDef.accept(this);
+			Label next = Label.createLabel();
+			tr.genBnez(tr.genSub(aswitch.expr.val, caseDef.caseValue.val), next);
+			tr.genAssign(aswitch.val, caseDef.val);
+			tr.genBranch(exit);
+			tr.genMark(next);
+		}
+		aswitch.defaultCaseExpr.accept(this);
+		tr.genAssign(aswitch.val, aswitch.defaultCaseExpr.val);
+		tr.genMark(exit);
+	}
 
 	@Override
 	public void visitNewArray(Tree.NewArray newArray) {

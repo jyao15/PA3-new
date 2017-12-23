@@ -23,13 +23,37 @@ main:
     _T5 = _T7
     _T8 = 3
     _T6 = _T8
-java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:258)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at decaf.translate.Translater.printTo(Translater.java:70)
-	at decaf.Driver.compile(Driver.java:107)
-	at decaf.Driver.main(Driver.java:117)
+    _T9 = 3
+    _T10 = (_T3 * _T9)
+    _T12 = 0
+    _T13 = (_T5 + _T6)
+    _T14 = (_T10 - _T12)
+    if (_T14 != 0) branch _L11
+    _T11 = _T13
+    branch _L10
+_L11:
+    _T15 = 3
+    _T16 = 3
+    _T17 = (_T5 + _T16)
+    _T18 = (_T10 - _T15)
+    if (_T18 != 0) branch _L12
+    _T11 = _T17
+    branch _L10
+_L12:
+    _T19 = 6
+    _T20 = 2
+    _T21 = (_T6 * _T20)
+    _T22 = 6
+    _T23 = (_T21 + _T22)
+    _T24 = (_T10 - _T19)
+    if (_T24 != 0) branch _L13
+    _T11 = _T23
+    branch _L10
+_L13:
+    _T25 = 100
+    _T11 = _T25
+_L10:
+    _T5 = _T11
     parm _T5
     call _PrintInt
 }
