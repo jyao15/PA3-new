@@ -295,6 +295,25 @@ public class TransPass2 extends Tree.Visitor {
 			}
 		}
 	}
+	
+	@Override
+	public void visitPrintComp(Tree.PrintComp printCompStmt) {
+		for (Tree.Expr r : printCompStmt.exprs) {
+			r.accept(this);
+			if (r.type.equal(BaseType.COMPLEX)) {
+				tr.genParm(r.val);
+				tr.genIntrinsicCall(Intrinsic.PRINT_INT);
+				Temp plusChar = tr.genLoadStrConst("+");
+				tr.genParm(plusChar);
+				tr.genIntrinsicCall(Intrinsic.PRINT_STRING);
+				tr.genParm(r.secondVal);
+				tr.genIntrinsicCall(Intrinsic.PRINT_INT);
+				Temp jChar = tr.genLoadStrConst("j");
+				tr.genParm(jChar);
+				tr.genIntrinsicCall(Intrinsic.PRINT_STRING);
+			}
+		}
+	}
 
 	@Override
 	public void visitIndexed(Tree.Indexed indexed) {
