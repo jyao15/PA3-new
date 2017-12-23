@@ -174,8 +174,10 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genStore(assign.expr.val, varRef.owner.val, varRef.symbol
 					.getOffset());
 			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				//System.out.println("Hello assign complex!");
 				tr.genStore(assign.expr.secondVal, varRef.owner.secondVal, varRef.symbol
 						.getOffset() + OffsetCounter.WORD_SIZE);
+				//System.out.println("Assign complex finished!");
 			}
 			break;
 		case PARAM_VAR:
@@ -372,6 +374,10 @@ public class TransPass2 extends Tree.Visitor {
 			}
 			for (Tree.Expr expr : callExpr.actuals) {
 				tr.genParm(expr.val);
+				if (expr.type.equal(BaseType.COMPLEX)) {
+					// System.out.println("I'm here!");
+					tr.genParm(expr.secondVal);
+				}
 			}
 			if (callExpr.receiver == null) {
 				callExpr.val = tr.genDirectCall(

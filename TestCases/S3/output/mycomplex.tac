@@ -12,35 +12,32 @@ VTABLE(_Main) {
 FUNCTION(_Mac_New) {
 memo ''
 _Mac_New:
-    _T5 = 16
-    parm _T5
-    _T6 =  call _Alloc
-    _T7 = 0
-    *(_T6 + 4) = _T7
-    *(_T6 + 8) = _T7
-    *(_T6 + 12) = _T7
-    _T8 = VTBL <_Mac>
-    *(_T6 + 0) = _T8
-    return _T6
+    _T3 = 12
+    parm _T3
+    _T4 =  call _Alloc
+    _T5 = 0
+    *(_T4 + 4) = _T5
+    *(_T4 + 8) = _T5
+    _T6 = VTBL <_Mac>
+    *(_T4 + 0) = _T6
+    return _T4
 }
 
 FUNCTION(_Main_New) {
 memo ''
 _Main_New:
-    _T9 = 4
-    parm _T9
-    _T10 =  call _Alloc
-    _T11 = VTBL <_Main>
-    *(_T10 + 0) = _T11
-    return _T10
+    _T7 = 4
+    parm _T7
+    _T8 =  call _Alloc
+    _T9 = VTBL <_Main>
+    *(_T8 + 0) = _T9
+    return _T8
 }
 
 FUNCTION(_Mac.Crash) {
-memo '_T0:4 _T1:8 _T2:12 _T2:16 _T4:20'
+memo '_T0:4 _T1:8 _T1:12'
 _Mac.Crash:
-    _T12 = *(_T0 + 12)
-    *(_T0 + 12) = _T1
-    _T13 = *(_T0 + 4)
+    _T10 = *(_T0 + 4)
 Exception in thread "main" java.lang.NullPointerException
 	at decaf.tac.Tac.toString(Tac.java:287)
 	at java.lang.String.valueOf(Unknown Source)

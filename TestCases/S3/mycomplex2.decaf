@@ -1,0 +1,16 @@
+class Mac  {
+    int ex;
+    int b;
+    void Crash(int comp, int gg) {
+        ex = comp;
+        b = gg;
+    }
+}
+
+class Main {
+    static void main() {
+        class Mac powerbook;
+        powerbook = new Mac();
+        powerbook.Crash(3,4);
+    }
+}
