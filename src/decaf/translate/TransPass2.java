@@ -26,6 +26,7 @@ public class TransPass2 extends Tree.Visitor {
 	@Override
 	public void visitClassDef(Tree.ClassDef classDef) {
 		for (Tree f : classDef.fields) {
+			//System.out.println("trans2 visitClassDef visit fields" + f);
 			f.accept(this);
 		}
 	}
@@ -55,6 +56,13 @@ public class TransPass2 extends Tree.Visitor {
 			Temp t = Temp.createTempI4();
 			t.sym = varDef.symbol;
 			varDef.symbol.setTemp(t);
+			//System.out.println("vardef1 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp());
+			if (varDef.symbol.getType() == BaseType.COMPLEX) {
+				Temp t2 = Temp.createTempI4();
+				t2.sym = varDef.symbol;
+				varDef.symbol.setTemp2(t2);
+				//System.out.println("vardef2 " + varDef.symbol.getType() + " " + varDef.symbol.getTemp2());
+			}
 		}
 	}
 
@@ -65,11 +73,40 @@ public class TransPass2 extends Tree.Visitor {
 		switch (expr.tag) {
 		case Tree.PLUS:
 			expr.val = tr.genAdd(expr.left.val, expr.right.val);
+			if (expr.left.type.equal(BaseType.COMPLEX) || (expr.right.type.equal(BaseType.COMPLEX))) {
+				if (expr.left.type.equal(BaseType.COMPLEX)) {
+					if (expr.right.type.equal(BaseType.COMPLEX)) {
+						expr.secondVal = tr.genAdd(expr.left.secondVal, expr.right.secondVal);
+					}
+					else {
+						expr.secondVal = expr.left.secondVal;
+					}
+				}
+				else {
+					expr.secondVal = expr.right.secondVal;
+				}
+			}
 			break;
 		case Tree.MINUS:
 			expr.val = tr.genSub(expr.left.val, expr.right.val);
 			break;
 		case Tree.MUL:
+			if ((expr.left.type.equal(BaseType.COMPLEX)) || (expr.left.type.equal(BaseType.COMPLEX))) {
+				if (expr.left.type.equal(BaseType.COMPLEX)) {
+					if (expr.right.type.equal(BaseType.COMPLEX)) {
+						expr.val = tr.genSub(tr.genMul(expr.left.val, expr.right.val), tr.genMul(expr.left.secondVal, expr.right.secondVal));
+						expr.secondVal = tr.genAdd(tr.genMul(expr.left.val, expr.right.secondVal), tr.genMul(expr.left.secondVal, expr.right.val));
+					}
+					else {
+						expr.val = tr.genMul(expr.left.val, expr.right.val);
+						expr.secondVal = tr.genMul(expr.left.secondVal, expr.right.val);
+					}
+				}
+				else {
+					expr.val = tr.genMul(expr.left.val, expr.right.val);
+					expr.secondVal = tr.genMul(expr.left.val, expr.right.secondVal);
+				}
+			}
 			expr.val = tr.genMul(expr.left.val, expr.right.val);
 			break;
 		case Tree.DIV:
@@ -137,11 +174,25 @@ public class TransPass2 extends Tree.Visitor {
 			Tree.Ident varRef = (Tree.Ident) assign.left;
 			tr.genStore(assign.expr.val, varRef.owner.val, varRef.symbol
 					.getOffset());
+			//System.out.println("member var 1 offset: " + varRef.symbol.getOffset());
+			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				//System.out.println("Hello assign complex!");
+				tr.genStore(assign.expr.secondVal, varRef.owner.val, varRef.symbol
+						.getOffset() + OffsetCounter.WORD_SIZE);
+				//System.out.println("member var 2 offset: " + (varRef.symbol.getOffset() + OffsetCounter.WORD_SIZE));
+				//System.out.println("Assign complex finished!");
+			}
 			break;
 		case PARAM_VAR:
 		case LOCAL_VAR:
 			tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp(),
 					assign.expr.val);
+			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				//System.out.println(((Tree.Ident) assign.left).symbol.getTemp2());
+				//System.out.println(assign.expr.secondVal);
+				tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp2(),
+						assign.expr.secondVal);
+			}
 			break;
 		}
 	}
@@ -154,6 +205,10 @@ public class TransPass2 extends Tree.Visitor {
 			break;
 		case Tree.BOOL:
 			literal.val = tr.genLoadImm4((Boolean)(literal.value) ? 1 : 0);
+			break;
+		case Tree.COMPLEX:
+			literal.val = tr.genLoadImm4(0);
+			literal.secondVal = tr.genLoadImm4(((Integer)literal.value).intValue());
 			break;
 		default:
 			literal.val = tr.genLoadStrConst((String)literal.value);
@@ -172,8 +227,24 @@ public class TransPass2 extends Tree.Visitor {
 		case Tree.NEG:
 			expr.val = tr.genNeg(expr.expr.val);
 			break;
-		default:
+		case Tree.NOT:
 			expr.val = tr.genLNot(expr.expr.val);
+			break;
+		case Tree.RELPART:
+			expr.val = Temp.createTempI4();
+			tr.genAssign(expr.val, expr.expr.val);
+			break;
+		case Tree.IMGPART:
+			expr.val = Temp.createTempI4();
+			tr.genAssign(expr.val, expr.expr.secondVal);
+			break;
+		case Tree.TRANSINT:
+			expr.val = Temp.createTempI4();
+			expr.secondVal = tr.genLoadImm4(0);
+			tr.genAssign(expr.val, expr.expr.val);
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -184,6 +255,7 @@ public class TransPass2 extends Tree.Visitor {
 
 	@Override
 	public void visitBlock(Tree.Block block) {
+		//System.out.println("visitBlock: " + block);
 		for (Tree s : block.block) {
 			s.accept(this);
 		}
@@ -229,6 +301,25 @@ public class TransPass2 extends Tree.Visitor {
 			}
 		}
 	}
+	
+	@Override
+	public void visitPrintComp(Tree.PrintComp printCompStmt) {
+		for (Tree.Expr r : printCompStmt.exprs) {
+			r.accept(this);
+			if (r.type.equal(BaseType.COMPLEX)) {
+				tr.genParm(r.val);
+				tr.genIntrinsicCall(Intrinsic.PRINT_INT);
+				Temp plusChar = tr.genLoadStrConst("+");
+				tr.genParm(plusChar);
+				tr.genIntrinsicCall(Intrinsic.PRINT_STRING);
+				tr.genParm(r.secondVal);
+				tr.genIntrinsicCall(Intrinsic.PRINT_INT);
+				Temp jChar = tr.genLoadStrConst("j");
+				tr.genParm(jChar);
+				tr.genIntrinsicCall(Intrinsic.PRINT_STRING);
+			}
+		}
+	}
 
 	@Override
 	public void visitIndexed(Tree.Indexed indexed) {
@@ -251,9 +342,15 @@ public class TransPass2 extends Tree.Visitor {
 		switch (ident.lvKind) {
 		case MEMBER_VAR:
 			ident.val = tr.genLoad(ident.owner.val, ident.symbol.getOffset());
+			if (ident.symbol.getType() == BaseType.COMPLEX) {
+				ident.secondVal = tr.genLoad(ident.owner.val, ident.symbol.getOffset() + OffsetCounter.WORD_SIZE);
+			}
 			break;
 		default:
 			ident.val = ident.symbol.getTemp();
+			if (ident.symbol.getType() == BaseType.COMPLEX) {
+				ident.secondVal = ident.symbol.getTemp2();
+			}
 			break;
 		}
 	}
@@ -281,6 +378,10 @@ public class TransPass2 extends Tree.Visitor {
 			}
 			for (Tree.Expr expr : callExpr.actuals) {
 				tr.genParm(expr.val);
+				if (expr.type.equal(BaseType.COMPLEX)) {
+					// System.out.println("I'm here!");
+					tr.genParm(expr.secondVal);
+				}
 			}
 			if (callExpr.receiver == null) {
 				callExpr.val = tr.genDirectCall(

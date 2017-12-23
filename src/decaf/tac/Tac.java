@@ -6,7 +6,7 @@ import decaf.utils.MiscUtils;
 
 public class Tac {
 	public enum Kind {
-		ADD, SUB, MUL, DIV, MOD, NEG, LAND, LOR, LNOT, GTR, GEQ, EQU, NEQ, LEQ,
+		ADD, SUB, MUL, DIV, MOD, NEG, LAND, LOR, LNOT, RELPART, IMGPART, TRANSINT, GTR, GEQ, EQU, NEQ, LEQ,
 		LES, ASSIGN, LOAD_VTBL, INDIRECT_CALL, DIRECT_CALL, RETURN, BRANCH,
 		BEQZ, BNEZ, LOAD, STORE, LOAD_IMM4, LOAD_STR_CONST, MEMO, MARK, PARM
 	}
@@ -201,6 +201,7 @@ public class Tac {
 	}
 
 	public static Tac genMemo(String memo) {
+		//System.out.println("memo~~~~~memo");
 		return new Tac(Kind.MEMO, memo);
 	}
 

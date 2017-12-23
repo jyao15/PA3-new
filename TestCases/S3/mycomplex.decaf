@@ -1,0 +1,14 @@
+class Mac  {
+    complex ex;
+    void Crash() {
+        ex = 3+4j;
+    }
+}
+
+class Main {
+    static void main() {
+        class Mac powerbook;
+        powerbook = new Mac();
+        powerbook.Crash();
+    }
+}
