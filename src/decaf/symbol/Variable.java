@@ -24,7 +24,7 @@ public class Variable extends Symbol {
 		return temp2;
 	}
 
-	public void setTemp2(Temp temp) {
+	public void setTemp2(Temp temp2) {
 		this.temp2 = temp2;
 	}
 

@@ -55,10 +55,12 @@ public class TransPass2 extends Tree.Visitor {
 			Temp t = Temp.createTempI4();
 			t.sym = varDef.symbol;
 			varDef.symbol.setTemp(t);
+			//System.out.println("vardef1 " + varDef.symbol.getTemp());
 			if (varDef.symbol.getType() == BaseType.COMPLEX) {
 				Temp t2 = Temp.createTempI4();
 				t2.sym = varDef.symbol;
 				varDef.symbol.setTemp2(t2);
+				//System.out.println("vardef2 " + varDef.symbol.getTemp2());
 			}
 		}
 	}
@@ -70,11 +72,40 @@ public class TransPass2 extends Tree.Visitor {
 		switch (expr.tag) {
 		case Tree.PLUS:
 			expr.val = tr.genAdd(expr.left.val, expr.right.val);
+			if (expr.left.type.equal(BaseType.COMPLEX) || (expr.right.type.equal(BaseType.COMPLEX))) {
+				if (expr.left.type.equal(BaseType.COMPLEX)) {
+					if (expr.right.type.equal(BaseType.COMPLEX)) {
+						expr.secondVal = tr.genAdd(expr.left.secondVal, expr.left.secondVal);
+					}
+					else {
+						expr.secondVal = expr.left.secondVal;
+					}
+				}
+				else {
+					expr.secondVal = expr.right.secondVal;
+				}
+			}
 			break;
 		case Tree.MINUS:
 			expr.val = tr.genSub(expr.left.val, expr.right.val);
 			break;
 		case Tree.MUL:
+			if ((expr.left.type.equal(BaseType.COMPLEX)) || (expr.left.type.equal(BaseType.COMPLEX))) {
+				if (expr.left.type.equal(BaseType.COMPLEX)) {
+					if (expr.right.type.equal(BaseType.COMPLEX)) {
+						expr.val = tr.genSub(tr.genMul(expr.left.val, expr.right.val), tr.genMul(expr.left.secondVal, expr.right.secondVal));
+						expr.secondVal = tr.genAdd(tr.genMul(expr.left.val, expr.right.secondVal), tr.genMul(expr.left.secondVal, expr.right.val));
+					}
+					else {
+						expr.val = tr.genMul(expr.left.val, expr.right.val);
+						expr.secondVal = tr.genMul(expr.left.secondVal, expr.right.val);
+					}
+				}
+				else {
+					expr.val = tr.genMul(expr.left.val, expr.right.val);
+					expr.secondVal = tr.genMul(expr.left.val, expr.right.secondVal);
+				}
+			}
 			expr.val = tr.genMul(expr.left.val, expr.right.val);
 			break;
 		case Tree.DIV:
@@ -152,6 +183,8 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp(),
 					assign.expr.val);
 			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				//System.out.println(((Tree.Ident) assign.left).symbol.getTemp2());
+				//System.out.println(assign.expr.secondVal);
 				tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp2(),
 						assign.expr.secondVal);
 			}
