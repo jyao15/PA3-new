@@ -252,6 +252,7 @@ public class TransPass2 extends Tree.Visitor {
 
 	@Override
 	public void visitBlock(Tree.Block block) {
+		System.out.println("visitBlock: " + block);
 		for (Tree s : block.block) {
 			s.accept(this);
 		}

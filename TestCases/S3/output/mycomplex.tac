@@ -1,3 +1,10 @@
+start vardef in methoddef: complex Temp: null Temp2: null
+vardef in methoddef: Temp: _T1
+vardef in methoddef: Temp2: _T2
+end vardef in methoddef: complex Temp: _T1 Temp2: _T2
+genMemo: _T0:4 _T1:8 _T2:12 
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
+visitBlock: decaf.tree.Tree$Block@2cdf8d8a
 VTABLE(_Mac) {
     <empty>
     Mac
@@ -35,11 +42,11 @@ _Main_New:
 }
 
 FUNCTION(_Mac.Crash) {
-memo '_T0:4 _T1:8 _T1:12'
+memo '_T0:4 _T1:8 _T2:12'
 _Mac.Crash:
     _T10 = *(_T0 + 4)
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:287)
+	at decaf.tac.Tac.toString(Tac.java:288)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
 	at decaf.translate.Translater.printTo(Translater.java:70)

@@ -1,3 +1,20 @@
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T1
+end vardef in methoddef: int Temp: _T1 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T4
+end vardef in methoddef: int Temp: _T4 Temp2: null
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
+genMemo: _T0:4 _T1:8 
+visitBlock: decaf.tree.Tree$Block@2cdf8d8a
+genMemo: _T2:4 
+visitBlock: decaf.tree.Tree$Block@30946e09
+genMemo: _T3:4 _T4:8 
+visitBlock: decaf.tree.Tree$Block@5cb0d902
+genMemo: _T5:4 
+visitBlock: decaf.tree.Tree$Block@46fbb2c1
+genMemo: _T6:4 
+visitBlock: decaf.tree.Tree$Block@1698c449
 VTABLE(_Main) {
     <empty>
     Main
@@ -75,7 +92,7 @@ main:
     _T26 = *(_T25 + 16)
     call _T26
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:258)
+	at decaf.tac.Tac.toString(Tac.java:259)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
 	at decaf.translate.Translater.printTo(Translater.java:70)

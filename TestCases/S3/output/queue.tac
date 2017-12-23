@@ -1,3 +1,42 @@
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T1
+end vardef in methoddef: int Temp: _T1 Temp2: null
+start vardef in methoddef: class : QueueItem Temp: null Temp2: null
+vardef in methoddef: Temp: _T2
+end vardef in methoddef: class : QueueItem Temp: _T2 Temp2: null
+start vardef in methoddef: class : QueueItem Temp: null Temp2: null
+vardef in methoddef: Temp: _T3
+end vardef in methoddef: class : QueueItem Temp: _T3 Temp2: null
+start vardef in methoddef: class : QueueItem Temp: null Temp2: null
+vardef in methoddef: Temp: _T8
+end vardef in methoddef: class : QueueItem Temp: _T8 Temp2: null
+start vardef in methoddef: class : QueueItem Temp: null Temp2: null
+vardef in methoddef: Temp: _T10
+end vardef in methoddef: class : QueueItem Temp: _T10 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T13
+end vardef in methoddef: int Temp: _T13 Temp2: null
+genMemo: _T0:4 _T1:8 _T2:12 _T3:16 
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
+genMemo: _T4:4 
+visitBlock: decaf.tree.Tree$Block@2cdf8d8a
+genMemo: _T5:4 
+visitBlock: decaf.tree.Tree$Block@30946e09
+genMemo: _T6:4 
+visitBlock: decaf.tree.Tree$Block@5cb0d902
+genMemo: _T7:4 _T8:8 
+visitBlock: decaf.tree.Tree$Block@46fbb2c1
+genMemo: _T9:4 _T10:8 
+visitBlock: decaf.tree.Tree$Block@1698c449
+genMemo: _T11:4 
+visitBlock: decaf.tree.Tree$Block@5ef04b5
+genMemo: _T12:4 _T13:8 
+visitBlock: decaf.tree.Tree$Block@5f4da5c3
+genMemo: _T14:4 
+visitBlock: decaf.tree.Tree$Block@443b7951
+visitBlock: decaf.tree.Tree$Block@14514713
+visitBlock: decaf.tree.Tree$Block@69663380
+visitBlock: decaf.tree.Tree$Block@5b37e0d2
 VTABLE(_QueueItem) {
     <empty>
     QueueItem

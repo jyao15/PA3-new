@@ -92,21 +92,27 @@ public class TransPass1 extends Tree.Visitor {
 			order = 0;
 		}
 		for (Tree.VarDef vd : funcDef.formals) {
+			System.out.println("start vardef in methoddef: " + vd.symbol.getType() + ' ' + 
+					"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
 			vd.symbol.setOrder(order++);
 			Temp t = Temp.createTempI4();
+			System.out.println("vardef in methoddef: Temp: " + t);
 			t.sym = vd.symbol;
 			t.isParam = true;
 			vd.symbol.setTemp(t);
 			if (vd.symbol.getType().equal(BaseType.COMPLEX)) {
 				Temp t2 = Temp.createTempI4();
+				System.out.println("vardef in methoddef: Temp2: " + t2);
 				t2.sym = vd.symbol;
 				t2.isParam = true;
-				vd.symbol.setTemp2(t);
+				vd.symbol.setTemp2(t2);
 				vd.symbol.setOffset(oc.next(vd.symbol.getTemp().size * 2));
 			}
 			else {
 				vd.symbol.setOffset(oc.next(vd.symbol.getTemp().size));
 			}
+			System.out.println("end vardef in methoddef: " + vd.symbol.getType() + ' ' + 
+					"Temp: " + vd.symbol.getTemp() + " Temp2: " + vd.symbol.getTemp2());
 		}
 	}
 

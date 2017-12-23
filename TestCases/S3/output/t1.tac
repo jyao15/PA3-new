@@ -1,3 +1,4 @@
+visitBlock: decaf.tree.Tree$Block@255316f2
 VTABLE(_Main) {
     <empty>
     Main

@@ -1,3 +1,4 @@
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
 VTABLE(_Main) {
     <empty>
     Main
@@ -24,7 +25,7 @@ main:
     _T11 = 3
     _T5 = _T11
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:258)
+	at decaf.tac.Tac.toString(Tac.java:259)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
 	at decaf.translate.Translater.printTo(Translater.java:70)

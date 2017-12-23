@@ -201,6 +201,7 @@ public class Tac {
 	}
 
 	public static Tac genMemo(String memo) {
+		//System.out.println("memo~~~~~memo");
 		return new Tac(Kind.MEMO, memo);
 	}
 

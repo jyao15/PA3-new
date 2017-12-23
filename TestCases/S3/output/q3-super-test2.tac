@@ -1,3 +1,85 @@
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T1
+end vardef in methoddef: int Temp: _T1 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T2
+end vardef in methoddef: int Temp: _T2 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T6
+end vardef in methoddef: int Temp: _T6 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T7
+end vardef in methoddef: int Temp: _T7 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T11
+end vardef in methoddef: int Temp: _T11 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T12
+end vardef in methoddef: int Temp: _T12 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T16
+end vardef in methoddef: int Temp: _T16 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T17
+end vardef in methoddef: int Temp: _T17 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T21
+end vardef in methoddef: int Temp: _T21 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T22
+end vardef in methoddef: int Temp: _T22 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T26
+end vardef in methoddef: int Temp: _T26 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T27
+end vardef in methoddef: int Temp: _T27 Temp2: null
+start vardef in methoddef: int Temp: null Temp2: null
+vardef in methoddef: Temp: _T31
+end vardef in methoddef: int Temp: _T31 Temp2: null
+genMemo: _T0:4 _T1:8 _T2:12 
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
+genMemo: _T3:4 
+visitBlock: decaf.tree.Tree$Block@2cdf8d8a
+genMemo: _T4:4 
+visitBlock: decaf.tree.Tree$Block@30946e09
+genMemo: _T5:4 _T6:8 _T7:12 
+visitBlock: decaf.tree.Tree$Block@5cb0d902
+genMemo: _T8:4 
+visitBlock: decaf.tree.Tree$Block@46fbb2c1
+genMemo: _T9:4 
+visitBlock: decaf.tree.Tree$Block@1698c449
+genMemo: _T10:4 _T11:8 _T12:12 
+visitBlock: decaf.tree.Tree$Block@5ef04b5
+genMemo: _T13:4 
+visitBlock: decaf.tree.Tree$Block@5f4da5c3
+genMemo: _T14:4 
+visitBlock: decaf.tree.Tree$Block@443b7951
+genMemo: _T15:4 _T16:8 _T17:12 
+visitBlock: decaf.tree.Tree$Block@14514713
+genMemo: _T18:4 
+visitBlock: decaf.tree.Tree$Block@69663380
+genMemo: _T19:4 
+visitBlock: decaf.tree.Tree$Block@5b37e0d2
+genMemo: _T20:4 _T21:8 _T22:12 
+visitBlock: decaf.tree.Tree$Block@4459eb14
+genMemo: _T23:4 
+visitBlock: decaf.tree.Tree$Block@5a2e4553
+genMemo: _T24:4 
+visitBlock: decaf.tree.Tree$Block@28c97a5
+genMemo: _T25:4 _T26:8 _T27:12 
+visitBlock: decaf.tree.Tree$Block@6659c656
+genMemo: _T28:4 
+visitBlock: decaf.tree.Tree$Block@6d5380c2
+genMemo: _T29:4 
+visitBlock: decaf.tree.Tree$Block@45ff54e6
+genMemo: _T30:4 _T31:8 
+visitBlock: decaf.tree.Tree$Block@2328c243
+genMemo: _T32:4 
+visitBlock: decaf.tree.Tree$Block@bebdb06
+genMemo: _T33:4 
+visitBlock: decaf.tree.Tree$Block@7a4f0f29
+visitBlock: decaf.tree.Tree$Block@45283ce2
 VTABLE(_A) {
     <empty>
     A
@@ -299,7 +381,7 @@ _B.fun:
     parm _T99
     call _PrintString
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.tac.Tac.toString(Tac.java:308)
+	at decaf.tac.Tac.toString(Tac.java:309)
 	at java.lang.String.valueOf(Unknown Source)
 	at java.lang.StringBuilder.append(Unknown Source)
 	at decaf.translate.Translater.printTo(Translater.java:70)

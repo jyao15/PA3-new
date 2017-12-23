@@ -1,3 +1,14 @@
+start vardef in methoddef: class : Base Temp: null Temp2: null
+vardef in methoddef: Temp: _T0
+end vardef in methoddef: class : Base Temp: _T0 Temp2: null
+visitBlock: decaf.tree.Tree$Block@4b9af9a9
+genMemo: _T0:4 
+visitBlock: decaf.tree.Tree$Block@2cdf8d8a
+visitBlock: decaf.tree.Tree$Block@30946e09
+visitBlock: decaf.tree.Tree$Block@5cb0d902
+visitBlock: decaf.tree.Tree$Block@46fbb2c1
+visitBlock: decaf.tree.Tree$Block@1698c449
+visitBlock: decaf.tree.Tree$Block@5ef04b5
 VTABLE(_Main) {
     <empty>
     Main
