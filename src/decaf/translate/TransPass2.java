@@ -55,6 +55,11 @@ public class TransPass2 extends Tree.Visitor {
 			Temp t = Temp.createTempI4();
 			t.sym = varDef.symbol;
 			varDef.symbol.setTemp(t);
+			if (varDef.symbol.getType() == BaseType.COMPLEX) {
+				Temp t2 = Temp.createTempI4();
+				t2.sym = varDef.symbol;
+				varDef.symbol.setTemp2(t2);
+			}
 		}
 	}
 
