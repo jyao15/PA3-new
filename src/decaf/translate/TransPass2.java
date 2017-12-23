@@ -276,9 +276,15 @@ public class TransPass2 extends Tree.Visitor {
 		switch (ident.lvKind) {
 		case MEMBER_VAR:
 			ident.val = tr.genLoad(ident.owner.val, ident.symbol.getOffset());
+			if (ident.symbol.getType() == BaseType.COMPLEX) {
+				ident.val = tr.genLoad(ident.owner.secondVal, ident.symbol.getOffset() + OffsetCounter.WORD_SIZE);
+			}
 			break;
 		default:
 			ident.val = ident.symbol.getTemp();
+			if (ident.symbol.getType() == BaseType.COMPLEX) {
+				ident.secondVal = ident.symbol.getTemp2();
+			}
 			break;
 		}
 	}
