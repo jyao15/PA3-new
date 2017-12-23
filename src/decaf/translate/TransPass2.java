@@ -172,8 +172,24 @@ public class TransPass2 extends Tree.Visitor {
 		case Tree.NEG:
 			expr.val = tr.genNeg(expr.expr.val);
 			break;
-		default:
+		case Tree.NOT:
 			expr.val = tr.genLNot(expr.expr.val);
+			break;
+		case Tree.RELPART:
+			expr.val = Temp.createTempI4();
+			tr.genAssign(expr.val, expr.expr.val);
+			break;
+		case Tree.IMGPART:
+			expr.val = Temp.createTempI4();
+			tr.genAssign(expr.val, expr.expr.secondVal);
+			break;
+		case Tree.TRANSINT:
+			expr.val = Temp.createTempI4();
+			expr.secondVal = tr.genLoadImm4(0);
+			tr.genAssign(expr.val, expr.expr.val);
+			break;
+		default:
+			break;
 		}
 	}
 

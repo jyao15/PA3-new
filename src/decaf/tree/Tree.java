@@ -838,6 +838,7 @@ public abstract class Tree {
 
     	public Type type;
     	public Temp val;
+    	public Temp secondVal;
     	public boolean isClass;
     	public boolean usedForRef;
     	
