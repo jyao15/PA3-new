@@ -142,11 +142,19 @@ public class TransPass2 extends Tree.Visitor {
 			Tree.Ident varRef = (Tree.Ident) assign.left;
 			tr.genStore(assign.expr.val, varRef.owner.val, varRef.symbol
 					.getOffset());
+			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				tr.genStore(assign.expr.secondVal, varRef.owner.secondVal, varRef.symbol
+						.getOffset() + OffsetCounter.WORD_SIZE);
+			}
 			break;
 		case PARAM_VAR:
 		case LOCAL_VAR:
 			tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp(),
 					assign.expr.val);
+			if (assign.expr.type.equal(BaseType.COMPLEX)) {
+				tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp2(),
+						assign.expr.secondVal);
+			}
 			break;
 		}
 	}
