@@ -75,7 +75,7 @@ public class TransPass2 extends Tree.Visitor {
 			if (expr.left.type.equal(BaseType.COMPLEX) || (expr.right.type.equal(BaseType.COMPLEX))) {
 				if (expr.left.type.equal(BaseType.COMPLEX)) {
 					if (expr.right.type.equal(BaseType.COMPLEX)) {
-						expr.secondVal = tr.genAdd(expr.left.secondVal, expr.left.secondVal);
+						expr.secondVal = tr.genAdd(expr.left.secondVal, expr.right.secondVal);
 					}
 					else {
 						expr.secondVal = expr.left.secondVal;
